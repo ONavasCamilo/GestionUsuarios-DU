@@ -24,7 +24,7 @@ const userRegisterController = async (req, res) => {
             password: hashedPassword,
         });
         await user.save();
-        return res.send('usuario registrado con exito');
+        return res.status(201).send('usuario registrado con exito');
     } catch (err) {
         res.status(500).send({ err });
     }

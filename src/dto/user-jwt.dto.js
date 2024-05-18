@@ -9,7 +9,7 @@ const userJWTDTO = async (req, res, next) => {
     try {
         const encoder = new TextEncoder();
         const { payload } = await jwtVerify(
-            authorization,
+            authorization.split(' ')[1],
             encoder.encode(JWT_PRIVATE_KEY)
         );
         req.id = payload.id;
